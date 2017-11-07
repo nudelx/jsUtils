@@ -1,4 +1,4 @@
- const timer = function (time, cb ) {
+  const timer = function (time, cb ) {
  
   let [_yes, _no] = [null, null];
 
@@ -16,10 +16,10 @@ timer(3000, () => console.log('callback is done ')  )
 
 const composeWithPromise = (f) => (...args) => new Promise ((yes, no) => { try {yes(f(...args))} catch(err) {no(err)}})
 
-const myFunction = (str) => { console.log('runnig', str); return 'the value'}
+const myFunction = (str) => { console.log('runnig', str); var a = {}; a.t.toLocaleString() ;return 'the value'}
 
 const myFunctionWithPromise = composeWithPromise(myFunction)
 
-myFunctionWithPromise('test').then(data => console.log('data from promise is ', data))
+myFunctionWithPromise('test').then(data => console.log('data from promise is ', data)).catch(err => console.log('err => ' + err))
 
 
