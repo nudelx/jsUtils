@@ -26,34 +26,34 @@ myFunctionWithPromise('test').then(data => console.log('data from promise is ', 
 
 */
 
-// const composeWithMemo = f => {
-//   const cache = {}
-//   return (x, y) => {
-//     const argsKey = `${x}_${y}`
-//     return cache[argsKey] ? cache[argsKey] : (cache[argsKey] = f(x, y))
-//   }
-// }
-//
-// const foo = (x, y) => {
-//   console.log('running very long calculation of f(x,y)')
-//   return x + y
-// }
-//
-// const bar = () => {
-//   console.log('running very very very long calculation of f(x,y)')
-//   return x * y
-// }
-//
-// const [x, y] = [2, 4]
-// const fooWithMemo = composeWithMemo(foo)
-// const barWithMemo = composeWithMemo(bar)
-//
-//
-// console.log('res => ', fooWithMemo(x, y))
-// console.log('res => ', fooWithMemo(x, y))
-//
-// console.log('res => ', barWithMemo(x, y))
-// console.log('res => ', barWithMemo(x, y))
+const composeWithMemo = f => {
+  const cache = {}
+  return (x, y) => {
+    const argsKey = `${x}_${y}`
+    return cache[argsKey] ? cache[argsKey] : (cache[argsKey] = f(x, y))
+  }
+}
+
+const foo = (x, y) => {
+  console.log('running very long calculation of f(x,y)')
+  return x + y
+}
+
+const bar = (x, y) => {
+  console.log('running very very very long calculation of f(x,y)')
+  return x * y
+}
+
+const [x, y] = [2, 4]
+const fooWithMemo = composeWithMemo(foo)
+const barWithMemo = composeWithMemo(bar)
+
+
+console.log('res => ', fooWithMemo(x, y))
+console.log('res => ', fooWithMemo(x, y))
+
+console.log('res => ', barWithMemo(x, y))
+console.log('res => ', barWithMemo(x, y))
 
 // const myFunction = (str, cb) => {
 //   console.log('function is running: ', str);
