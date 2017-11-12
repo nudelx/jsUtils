@@ -110,10 +110,10 @@ const composeWithPromise = f => (...args) => {
 
 const myFunctionWithPromise = composeWithPromise(myFunction)
 
-// runnig with callback
+// running with callback
 myFunctionWithPromise('test', data => console.log('callback:', data))
 
-// runnig with promise
+// running with promise
 myFunctionWithPromise('test')
   .then(data => console.log('promise:', data))
   .catch(err => console.log('promise err => ', err))

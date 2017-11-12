@@ -11,3 +11,24 @@ console.log(trick1('test1'));
 
 console.log(trick2('test2'));
 console.log(trick2('test2'));
+
+
+
+/*******/
+
+
+var compose = require('./partial.js');
+
+const add  = function (x, y) {
+  return x + y
+}
+
+const minus = function (x, y) {
+  return x - y
+}
+
+
+var composedAddMinus = compose(add, minus);
+
+
+console.log(composedAddMinus(2,3))
